@@ -14,16 +14,16 @@ git submodule init
 git submodule update --remote
 
 :: Set up virtual environment with Python 3.11
-py -3.11 -m venv venv
-call .\venv\Scripts\activate.bat
+@REM py -3.11 -m venv venv
+@REM call .\venv\Scripts\activate.bat
 
 :: Upgrade pip and install required packages
 python -m pip install --upgrade pip
-python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+@REM python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 python -m pip install -r .\modules\tortoise-tts\requirements.txt
-python -m pip install -e .\modules\tortoise-tts\
+python -m pip install -e .\modules\tortoise-tts\ --update
 python -m pip install -r .\modules\dlas\requirements.txt
-python -m pip install -e .\modules\dlas\
+python -m pip install -e .\modules\dlas\ --update
 
 :: Download and extract RVC if not already done
 set file_name=rvc.zip
